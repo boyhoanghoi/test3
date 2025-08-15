@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đề Cương Đồ Án: App Bán Phụ Tùng Xe Máy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Teko:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Modern Industrial (Dark Gray, Orange, White) -->
+    <!-- Application Structure Plan: This SPA is structured as a modern project pitch deck. It starts with a strong hero section to grab attention. The navigation guides users through the project's core value (Overview), what it does (Features), how it's built (Technology), and the execution plan (Timeline). The features section is enhanced to showcase advanced, user-centric functionalities like vehicle compatibility and image search, which are key differentiators for this specific market. This structure is designed to be compelling and easy to follow for any stakeholder. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Project Timeline -> Goal: Show Process -> Viz/Presentation Method: Gantt-style Horizontal Bar Chart -> Interaction: Hover tooltips -> Justification: A Gantt chart provides a clear, professional visualization of the project schedule, making it easy to understand milestones and durations. -> Library/Method: Chart.js/Canvas.
+        - Report Info: Functional Requirements -> Goal: Organize & Inform -> Viz/Presentation Method: Interactive card grid with a detail panel -> Interaction: Click to view details -> Justification: This interactive format allows for a clean presentation of numerous complex features, letting users explore them one by one without being overwhelmed. It's more engaging than a simple list. -> Library/Method: Vanilla JS + HTML/CSS.
+        - Report Info: System Architecture -> Goal: Organize -> Viz/Presentation Method: HTML/CSS diagram -> Interaction: Hover highlights -> Justification: A visual diagram is the most effective method to communicate the technical stack and data flow between the Flutter frontend, Django backend, and MySQL database. -> Library/Method: HTML/Tailwind CSS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+            color: #d1d5db; /* text-gray-300 */
+        }
+        .font-heading {
+            font-family: 'Teko', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 550px;
+            max-height: 65vh;
+        }
+        .glass-effect {
+            background: rgba(31, 41, 55, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <header class="bg-gray-900/80 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-700">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="font-heading text-3xl font-bold text-white tracking-wider">ĐỒ ÁN TỐT NGHIỆP</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tổng Quan</a>
+                        <a href="#features" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Chức Năng</a>
+                        <a href="#tech" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Công Nghệ</a>
+                        <a href="#plan" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Kế Hoạch</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="relative bg-gray-900 overflow-hidden">
+             <div class="absolute inset-0 bg-black/50 z-10"></div>
+
+            <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 py-28 sm:py-36 text-center z-20">
+                <h2 class="font-heading text-lg font-semibold text-orange-500 uppercase tracking-widest">Đề tài: App Bán Phụ Tùng Xe Máy</h2>
+                <p class="mt-2 font-heading text-6xl font-extrabold text-white tracking-tight sm:text-7xl">
+                    FLUTTER & DJANGO
+                </p>
+                <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-200">
+                    mua sắm phụ tùng chính hãng, quản lý "garage" cá nhân đến kết nối cộng đồng và nhận nhắc nhở bảo dưỡng thông minh.
+                </p>
+            </div>
+        </section>
+
+        <section id="overview" class="py-16 sm:py-24 bg-gray-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="font-heading text-5xl font-bold tracking-tight text-white">Tổng Quan Dự Án</h2>
+                    <p class="mt-4 text-lg text-gray-400">Mục tiêu, giải pháp và giá trị cốt lõi của đề tài.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="glass-effect p-6 rounded-lg">
+                        <h3 class="font-heading text-2xl font-semibold text-orange-500">1. Tính Cấp Thiết</h3>
+                        <p class="mt-2 text-sm text-gray-300">Thị trường phụ tùng xe máy rộng lớn nhưng phân mảnh, thiếu nền tảng uy tín. Ứng dụng giải quyết vấn đề tìm kiếm, xác thực và đảm bảo tương thích phụ tùng cho từng dòng xe cụ thể.</p>
+                    </div>
+                    <div class="glass-effect p-6 rounded-lg">
+                        <h3 class="font-heading text-2xl font-semibold text-orange-500">2. Mục Đích Nghiên Cứu</h3>
+                        <p class="mt-2 text-sm text-gray-300">Xây dựng hệ thống thương mại điện tử chuyên biệt sử dụng Flutter cho frontend và Django (Python) cho backend, mang lại hiệu năng cao, bảo mật và khả năng mở rộng mạnh mẽ.</p>
+                    </div>
+                    <div class="glass-effect p-6 rounded-lg">
+                        <h3 class="font-heading text-2xl font-semibold text-orange-500">3. Giải Pháp Toàn Diện</h3>
+                        <p class="mt-2 text-sm text-gray-300">Không chỉ là một app bán hàng, đây là một trợ lý ảo cho người đi xe máy, tích hợp các tính năng thông minh như kiểm tra tương thích, nhắc bảo dưỡng và xây dựng cộng đồng.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="py-16 sm:py-24 bg-gray-900">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="font-heading text-5xl font-bold tracking-tight text-white">Hệ Thống Chức Năng</h2>
+                    <p class="mt-4 text-lg text-gray-400">Khám phá các tính năng đột phá dành cho người dùng và quản trị viên.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-1">
+                        <div id="feature-list" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-4">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2 glass-effect rounded-lg p-8 min-h-[350px] flex items-center justify-center" id="feature-details-container">
+                        <div id="feature-details-content" class="text-center">
+                            <p class="text-gray-400">Chọn một chức năng để xem mô tả chi tiết.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech" class="py-16 sm:py-24 bg-gray-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="font-heading text-5xl font-bold tracking-tight text-white">Kiến Trúc & Công Nghệ</h2>
+                    <p class="mt-4 text-lg text-gray-400">Nền tảng công nghệ vững chắc và hiện đại.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    <div class="glass-effect p-6 rounded-lg">
+                        <h3 class="font-heading text-2xl font-semibold text-center mb-4 text-orange-500">Kiến Trúc Hệ Thống</h3>
+                        <div class="space-y-4 text-center">
+                            <div class="p-4 bg-gray-700 rounded-lg"><p class="font-semibold text-white">Client: Flutter (Dart)</p></div>
+                            <div class="text-2xl text-gray-500">↓</div>
+                            <div class="p-4 bg-gray-700 rounded-lg"><p class="font-semibold text-white">API Gateway: Django REST Framework</p></div>
+                            <div class="text-2xl text-gray-500">↓</div>
+                            <div class="p-4 bg-gray-700 rounded-lg"><p class="font-semibold text-white">Server: Django (Python)</p></div>
+                            <div class="text-2xl text-gray-500">↓</div>
+                            <div class="p-4 bg-gray-700 rounded-lg"><p class="font-semibold text-white">Database: MySQL</p></div>
+                        </div>
+                    </div>
+                    <div class="glass-effect p-6 rounded-lg">
+                        <h3 class="font-heading text-2xl font-semibold text-center mb-4 text-orange-500">Công Nghệ Nổi Bật</h3>
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div class="p-4 bg-gray-700 rounded-lg"><p class="font-medium">Flutter (Dart)</p></div>
+                            <div class="p-4 bg-gray-700 rounded-lg"><p class="font-medium">Django (Python)</p></div>
+                            <div class="p-4 bg-gray-700 rounded-lg"><p class="font-medium">MySQL</p></div>
+                            <div class="p-4 bg-gray-700 rounded-lg"><p class="font-medium">RESTful API</p></div>
+                            <div class="p-4 bg-gray-700 rounded-lg"><p class="font-medium">Image Recognition (AI)</p></div>
+                            <div class="p-4 bg-gray-700 rounded-lg"><p class="font-medium">Push Notifications</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="plan" class="py-16 sm:py-24 bg-gray-900">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="font-heading text-5xl font-bold tracking-tight text-white">Kế Hoạch Thực Hiện</h2>
+                    <p class="mt-4 text-lg text-gray-400">Lộ trình phát triển dự án trong 16 tuần.</p>
+                </div>
+                <div class="chart-container glass-effect p-4 rounded-lg">
+                    <canvas id="ganttChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+            <p class="text-white">Đồ án tốt nghiệp Khoa Công nghệ thông tin</p>
+            <p class="text-sm text-gray-400 mt-2">Trường Đại học Tài nguyên và Môi trường TP.HCM</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const features = [
+                { id: 'F1', name: 'Kiểm tra Tương thích', desc: 'Người dùng có thể lưu thông tin xe (hãng, dòng xe, năm sản xuất) trong "Garage cá nhân". Hệ thống sẽ tự động lọc và đề xuất các phụ tùng tương thích 100%.' },
+                { id: 'F2', name: 'Tìm kiếm bằng Hình ảnh', desc: 'Sử dụng công nghệ AI, cho phép người dùng chụp hoặc tải lên ảnh của một phụ tùng, ứng dụng sẽ nhận diện và tìm kiếm các sản phẩm tương tự trong kho hàng.' },
+                { id: 'F3', name: 'Combo & Bản độ', desc: 'Gợi ý các gói phụ tùng thường được mua cùng nhau (ví dụ: combo lên full-system pô, gói đồ chơi kiểng), giúp người dùng dễ dàng nâng cấp xe theo chủ đề.' },
+                { id: 'F4', name: 'Cộng đồng & Đánh giá', desc: 'Khu vực để người dùng chia sẻ hình ảnh xe độ, đánh giá sản phẩm đã mua, và đặt câu hỏi kỹ thuật, tạo nên một cộng đồng người chơi xe sôi nổi.' },
+                { id: 'F5', name: 'Nhắc nhở Bảo dưỡng', desc: 'Dựa trên dòng xe và số km người dùng nhập, hệ thống sẽ tự động gửi thông báo nhắc nhở các lịch bảo dưỡng quan trọng (thay nhớt, kiểm tra sên, lốp...).' },
+                { id: 'F6', name: 'Tìm kiếm & Mua hàng', desc: 'Các chức năng E-commerce cốt lõi: tìm kiếm sản phẩm theo tên/mã, bộ lọc thông minh, giỏ hàng, và quy trình thanh toán an toàn.' },
+                { id: 'F7', name: 'Quản lý Sản phẩm', desc: '(Admin) Quản lý chi tiết thông tin sản phẩm, giá cả, hình ảnh, và quan trọng nhất là dữ liệu tương thích với các dòng xe khác nhau.' },
+                { id: 'F8', name: 'Quản lý Kho & Đơn hàng', desc: '(Admin) Hệ thống quản lý tồn kho thời gian thực, xử lý đơn hàng theo quy trình chuyên nghiệp, và theo dõi tình trạng vận chuyển.' },
+                { id: 'F9', name: 'Phân tích & Thống kê', desc: '(Admin) Dashboard cung cấp cái nhìn tổng quan về doanh thu, sản phẩm bán chạy, và hành vi người dùng để đưa ra chiến lược kinh doanh hiệu quả.' }
+            ];
+
+            const featureList = document.getElementById('feature-list');
+            const featureDetailsContent = document.getElementById('feature-details-content');
+            let activeFeatureButton = null;
+
+            features.forEach(feature => {
+                const button = document.createElement('button');
+                button.className = 'feature-btn p-4 glass-effect rounded-lg text-center hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500';
+                button.dataset.featureId = feature.id;
+                
+                let buttonText = feature.name;
+                if (feature.name.includes('(Admin)')) {
+                    buttonText = feature.name.replace('(Admin)', '<span class="block text-xs font-normal text-red-400">(Quản trị)</span>');
+                }
+
+                button.innerHTML = `<p class="font-semibold text-sm text-white">${buttonText}</p>`;
+                
+                button.addEventListener('click', () => {
+                    if (activeFeatureButton) {
+                        activeFeatureButton.classList.remove('bg-orange-500/20', 'border-orange-500');
+                    }
+                    button.classList.add('bg-orange-500/20', 'border-orange-500');
+                    activeFeatureButton = button;
+
+                    featureDetailsContent.innerHTML = `
+                        <h3 class="font-heading text-3xl font-bold text-orange-500 mb-2">${feature.name.replace('(Admin)', '')}</h3>
+                        <p class="text-gray-300">${feature.desc.replace('(Admin)', '')}</p>
+                    `;
+                });
+
+                featureList.appendChild(button);
+            });
+
+            const ganttData = {
+                labels: [
+                    'Phân tích & Thiết kế',
+                    'Xây dựng Backend (Django)',
+                    'Phát triển Module AI',
+                    'Xây dựng App Quản trị',
+                    'Xây dựng App Khách hàng',
+                    'Kiểm thử & Tối ưu',
+                    'Hoàn thiện Báo cáo'
+                ],
+                datasets: [{
+                    label: 'Tiến độ dự án (tuần)',
+                    data: [
+                        [0, 2],
+                        [2, 7],
+                        [5, 9],
+                        [7, 12],
+                        [8, 14],
+                        [14, 15],
+                        [15, 16]
+                    ],
+                    backgroundColor: 'rgba(249, 115, 22, 0.7)',
+                    borderColor: 'rgb(249, 115, 22)',
+                    borderWidth: 1,
+                    barPercentage: 0.6,
+                    categoryPercentage: 0.8,
+                    borderSkipped: false,
+                }]
+            };
+
+            const ganttConfig = {
+                type: 'bar',
+                data: ganttData,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            position: 'top',
+                            min: 0,
+                            max: 16,
+                            title: {
+                                display: true,
+                                text: 'Tuần',
+                                color: '#9ca3af'
+                            },
+                            ticks: { color: '#9ca3af' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#d1d5db' },
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const item = context.dataset.data[context.dataIndex];
+                                    return ` ${context.label}: Tuần ${item[0] + 1} - Tuần ${item[1]}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            const ganttChartCtx = document.getElementById('ganttChart').getContext('2d');
+            new Chart(ganttChartCtx, ganttConfig);
+        });
+    </script>
+</body>
+</html>
